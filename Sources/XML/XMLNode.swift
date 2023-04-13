@@ -289,7 +289,7 @@ public class XMLNode {
         xPathContext.pointee.node = self.xmlNode
 
         let _xPathObject = xPath.withCString { xPathPtr in
-            xPathPtr.withMemoryRebound(to: xmlChar.self, capacity: xPath.characters.count) {
+            xPathPtr.withMemoryRebound(to: xmlChar.self, capacity: xPath.count) {
                 xmlXPathEvalExpression($0, xPathContext)
             }
         }
